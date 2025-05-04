@@ -12,7 +12,7 @@ const Navigation = () =>{
 
     return(
         <nav>
-        <div className="container">
+        <div className="container ">
             <div className="row">
                 <div className="col-sm-2 navPart1">
                     <div className="catWrapper">

@@ -4,7 +4,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
 
-body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8);}
+body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8); overflow-x: hidden;}
 
 .bg-blue{background: #233a95;}
 @media (min-width: 1300px){
@@ -23,7 +23,7 @@ body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8);}
 ::-webkit-scrollbar-track{background: transparent !important;}
 
 .headerWrapper{border-bottom: 1px solid rgba(0,0,0,0.1);}
-.headerWrapper .top-strip{padding: 8px 0px; }
+.headerWrapper .top-strip{padding: 5px 0px; }
 .headerWrapper .top-strip p{color: #fff; font-size: 12px; font-weight: 500;}
 
 .headerWrapper .header{width: 100%;height: auto; padding: 8px 0px;}
@@ -35,7 +35,7 @@ body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8);}
 .header .part2 .locationDrop .name{font-size: 12px !important; text-transform: capitalize !important; color: #233a95 !important; font-weight: 700; line-height: 16px;}
 .header .part2 .locationDrop span.ml-auto svg{opacity: 0.7;}
 
-.headerSearch{width: 60%; height: 60px; background: #f3f4f7; padding: 5px; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,0.1);}
+.headerSearch{width: 60%; height: 50px; background: #f3f4f7; padding: 1px; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,0.1);}
 .headerSearch input{background: transparent !important; outline: none !important; font-size: 18px; color: rgba(0,0,0,0.7); width: 100%; height: 45px; border: none; padding: 0px 20px !important;}
 header .headerSearch input::-webkit-input-placeholder{color: rgba(0,0,0,0.6);}
 
@@ -113,7 +113,7 @@ nav .navPart2 ul li:hover .submenu{opacity: 1; visibility: inherit; top: 100%;}
 
 .homeBannerSection{position: relative; overflow: hidden;}
 .homeBannerSection *{outline: none !important;}
-.homeBannerSection .slick-arrow{position: absolute; top: 45%; z-index: 100; display: flex; align-items: center; justify-content: center; width: 40px !important; height: 40px !important; background: #ffffff !important; border-radius: 100%; font-family: FontAwesome !important; font-weight: bold;}
+.homeBannerSection .slick-arrow{position: absolute; top: 45%; z-index: 100; display: flex; align-items: center; justify-content: center; width: 40px !important; height: 40px !important; background: #ffffff !important; border-radius: 100%; font-family: FontAwesome !important; font-weight: bold; box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%) !important;}
 .homeBannerSection .slick-arrow.slick-next{right: 35px !important;}
 .homeBannerSection .slick-arrow.slick-prev{left: 35px !important;}
 
@@ -123,12 +123,90 @@ nav .navPart2 ul li:hover .submenu{opacity: 1; visibility: inherit; top: 100%;}
 .homeBannerSection {cursor: pointer;}
 
 .homeProducts{padding: 25px 0px; width: 100%;}
-.homeProducts .banner{width: 100%; border-radius: 7x; overflow: hidden;}
+.homeProducts .banner{width: 100%; border-radius: 7px; overflow: hidden;}
 
-.productRow .hd{font-size: 25px; font-weight: 600;}
+.hd{font-size: 20px; font-weight: 600; text-transform: uppercase;}
 
 
 .viewAllBtn{padding: 5px 25px !important; background: #fff; border: 1px solid rgba(0,0,0,0.1) !important; border-radius: 30px !important; color: #414141 !important; font-weight: 600; text-transform: capitalize !important;}
 .viewAllBtn svg{font-size: 20px;}
 
-.productItem{width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1);}
+.productItem{width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1); cursor: pointer; position: relative;}
+
+.productItem .badge{display: inline-block; padding: 7px 10px; position: absolute; top: 10px; left: 10px; z-index: 100;}
+
+.productItem .info{padding: 15px;}
+.productItem h4{font-size: 16px; font-weight: 600;}
+
+.productItem .info .oldPrice{font-size: 16px; font-weight: bold; color: rgba(0,0,0,0.2); text-decoration: line-through;}
+.productItem .info .netPrice{font-size: 16px; font-weight: bold;}
+
+.productItem .actions{position: absolute; top: 20px; right: -100%; z-index: 1000; display: flex; flex-direction: column; gap: 10px; transition: all 0.3s ease-in-out;}
+.productItem .actions button{display: flex; align-items: center; justify-content: center; min-width: 40px !important; height: 40px !important; width: 40px !important; border: 1px solid rgba(0,0,0,0.1) !important; border-radius: 50% !important; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%) !important; transition: all 0.0s;}
+
+.productItem .actions button svg{color: #000 !important; opacity: 0.8; pointer-events: none; font-size: 15px ;}
+
+.productItem .actions button:hover{background: #233a95 !important;}
+.productItem .actions button:hover svg{color: #fff !important;}
+
+.productItem .imgWrapper{overflow: hidden;}
+.productItem .imgWrapper .img{transition: all 0.2s ease-in-out;}
+.productItem .imgWrapper:hover .actions{ opacity: 1; right: 10px;}
+.productItem .imgWrapper:hover img{transform: scale(1.1);}
+
+.product_row .productItem{border-right: 1px solid transparent !important;}
+.product_row .swiper-slide:last-child .productItem{ border: 1px solid rgba(0,0,0,0.1) !important;}
+
+.swiper{padding-right: 1px !important;}
+
+.badge-primary{background: #2bbef9 !important;}
+
+.homeCat{padding: 35px 0px;}
+.homeCat .swiper {overflow: inherit !important;}
+.homeCat .swiper .item{padding: 15px; width: 100%; height: auto;background: #feefea; border-radius: 20%;}
+.homeCat .swiper .item img{width: 80%;}
+
+
+.homeCat .swiper-button-prev, .homeCat .swiper-button-next{top: -30px !important; color: #000 !important; width: 30px !important; height: 30px !important; background: #fff !important; border-radius: 100%; border: 1px solid rgba(0,0,0,0.4)}
+.homeCat .swiper-button-prev{right: 68px !important; left: inherit; }
+.homeCat .swiper-button-prev::after, .homeCat .swiper-button-next::after{font-size: 12px !important;}
+
+.productRow2{flex-wrap: wrap; gap: 10px;}
+.productRow2 .productItem{width: 24%; overflow: hidden; border-right: 1px solid rgba(0,0,0,0.1) !important;}
+
+.bannerSec{gap: 15px;}
+.bannerSec .banner img{width: 100%; }
+
+.sticky{position: sticky; top: 10px; z-index: 100;}
+
+.newsLetterSection{width: 100%; height: auto; background: #233a95; position: relative; overflow: hidden; padding: 70px 0px;}
+.newsLetterSection .col-md-6{position: static;}
+.newsLetterSection p{font-size: 18px; margin: 10px 0px;}
+.newsLetterSection h3{font-size: 35px; font-weight: bold;}
+.newsLetterSection p .text-light{color: #fff !important; opacity: 0.5; font-size: 15px;}
+.newsLetterSection img{position: absolute; bottom: 0px; right: 0px;}
+
+.newsLetterSection form{width: 100%; height: 60px; background: #fff; padding: 10px; position: relative; border-radius: 5px;}
+.newsLetterSection form svg {position: absolute;top: 17px; left: 10px; font-size: 25px; opacity: 0.3;}
+.newsLetterSection form input{width: 100%; height: 100%; background: #fff !important; outline: none !important; border: 0px !important; padding-left: 40px; padding-right: 200px;}
+
+.newsLetterSection form button{position: absolute; top: 6px; right: 7px; background: #233a95 !important; font-size: 14px !important; padding: 12px 25px !important; color: #fff !important; text-transform: capitalize !important; font-weight: 600 !important;}
+
+
+footer{width: 100%; height: 500px; margin: auto; padding: 25px 0px; background: #fff;}
+footer .topInfo .col{padding: 10px 15px; padding-left: 40px; border-right: 1px solid rgba(0,0,0,0.2);}
+footer .topInfo{border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 20px;}
+footer .topInfo .col:last-child{border-right: 0px;}
+footer .topInfo .col svg{font-size: 26px;}
+footer .topInfo .col span{font-size: 14px; font-weight: 600;}
+
+footer .linksWrap h5{font-size: 15px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase;}
+footer .linksWrap ul li{list-style: none; margin-bottom: 10px;}
+footer .linksWrap ul li a{color: #71778e; font-size: 13px;}
+footer .linksWrap ul li a:hover{text-decoration: none;}
+
+footer .copyright ul li{display: flex; align-items: center; justify-content: center; }
+footer .copyright ul li a{ margin-left: 4px; display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2);}
+footer .copyright ul li a svg{ font-size: 20px; color: rgba(0,0,0,0.8);}
+footer .copyright ul li a:hover{background: #2bbef9 !important;}
+footer .copyright ul li a:hover svg{color: #fff !important;}
