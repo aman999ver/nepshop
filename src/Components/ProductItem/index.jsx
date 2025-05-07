@@ -2,18 +2,32 @@ import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
+import ProductModel from '../ProductModel';
+import { useState } from 'react';
 
 
 const ProductItem = () =>{
-    return(
 
+    const [isOpenProductModal, setisOpenProductModal] = useState(false);
+
+    const viewProductDetails=(id)=>{
+        setisOpenProductModal(true);
+    }
+
+    const closeProductModal = ()=>{
+        setisOpenProductModal(false);
+    }
+
+
+    return(
+        <>
         <div className="item productItem">
             <div className="imgWrapper">
                 <img src="https://img.drz.lazcdn.com/static/np/p/ab16021a24fe031653062bfaad695e5f.png_400x400q80.png_.webp" className="w-100"/>
                                                 
                     <span className="badge badge-primary">28%</span>
                         <div className="actions">
-                            <Button><AiOutlineFullscreen/></Button>
+                            <Button onClick={()=>viewProductDetails(1)}><AiOutlineFullscreen/></Button>
                             <Button><IoMdHeartEmpty style={{fontSize:'20px'}}/></Button>
                         </div>
 
@@ -32,7 +46,13 @@ const ProductItem = () =>{
             </div>
 
         </div>
+
+        {
+            isOpenProductModal===true && <ProductModel closeProductModal={closeProductModal}/>
+        }
         
+         
+        </>
     )
 };
 
