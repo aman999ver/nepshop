@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Logo from "../../assets/images/logo.jpg";
+import Logo from "../../assets/images/logo.png";
 import LocationDropdown from "../LocationDropdown";
 import Button from '@mui/material/Button';
 import { FiUser } from "react-icons/fi";

@@ -6,12 +6,26 @@
 
 body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8); overflow-x: hidden;}
 
-.bg-blue{background: #233a95;}
+.bg-blue{background: #d21966;}
 @media (min-width: 1300px){
     .container, .container-lg, .container-md, .container-sm, .container-xl {
         max-width: 1200px;
     }
 }
+
+.badge{display: inline-block; padding: 7px 10px;}
+.badge.bg-success{background: #e5f8ed !important; color: #16b858 !important;}
+
+
+button{text-transform: capitalize !important;}
+
+
+.btn-blue{background: #f92b7f !important; color: #fff !important; text-transform: capitalize;}
+.btn-big{font-size: 15px !important; padding: 7px 30px !important; min-width: auto !important;}
+.btn-round{border-radius: 30px !important;}
+
+.btn-sml{font-size: 12px !important; color: #000; text-transform: capitalize !important;}
+.btn-sml svg{font-size: 20px ;}
 
 .cursor{cursor: pointer;}
 .text-light{color: #8b8b8b !important;}
@@ -32,7 +46,7 @@ body{font-family: "Lato", sans-serif; font-size: 14px; color: rgba(0,0,0,0.8); o
 .header .part2 .locationDrop{width: 170px; height: 50px; min-width: 170px; color: #000 !important; border: 1px solid rgba(0,0,0,0.2) !important; border-radius: 7px !important; padding: 10px 15px !important;}
 .header .part2 .locationDrop{text-align: left; justify-content: flex-start !important; }
 .header .part2 .locationDrop .label{font-size: 12px !important; text-transform: capitalize !important; color: rgba(0, 0, 0, 0.4) !important; line-height: 16px;}
-.header .part2 .locationDrop .name{font-size: 12px !important; text-transform: capitalize !important; color: #233a95 !important; font-weight: 700; line-height: 16px;}
+.header .part2 .locationDrop .name{font-size: 12px !important; text-transform: capitalize !important; color: #b82560 !important; font-weight: 700; line-height: 16px;}
 .header .part2 .locationDrop span.ml-auto svg{opacity: 0.7;}
 
 .headerSearch{width: 60%; height: 50px; background: #f3f4f7; padding: 1px; position: relative; border-radius: 5px; border: 1px solid rgba(0,0,0,0.1);}
@@ -86,9 +100,9 @@ nav .navPart1 .catWrapper .sidebarNav ul li:hover .submenu{opacity: 1; visibilit
 
 nav .navPart1 .catWrapper .sidebarNav ul li:hover .submenu button{border-radius: 0px;}
 
-nav .allCatTab{background: #2bbef9; padding: 10px 15px !important; border-radius: 30px;}
+nav .allCatTab{background: #f92b7f; padding: 10px 15px !important; border-radius: 30px;}
 nav .allCatTab *{color: #fff;}
-nav .allCatTab:hover{background: #2bbef9;}
+nav .allCatTab:hover{background: #f92b7f;}
 nav .allCatTab .text{font-weight: 600;}
 
 nav .allCatTab .icon1 svg{font-size: 20px !important;}
@@ -138,17 +152,19 @@ nav .navPart2 ul li:hover .submenu{opacity: 1; visibility: inherit; top: 100%;}
 .productItem .badge{display: inline-block; padding: 7px 10px; position: absolute; top: 10px; left: 10px; z-index: 100;}
 
 .productItem .info{padding: 15px;}
-.productItem h4{font-size: 16px; font-weight: 600;}
+.productItem .info h4{font-size: 15px; font-weight: 600;}
 
-.productItem .info .oldPrice{font-size: 16px; font-weight: bold; color: rgba(0,0,0,0.2); text-decoration: line-through;}
-.productItem .info .netPrice{font-size: 16px; font-weight: bold;}
+.info .oldPrice{font-size: 16px; font-weight: bold; color: rgba(0,0,0,0.2); text-decoration: line-through;}
+.info .oldPrice .lg{font-size: 20px;}
+.info .netPrice{font-size: 16px; font-weight: bold;}
+.info .netPrice .lg{font-size: 20px;}
 
 .productItem .actions{position: absolute; top: 20px; right: -100%; z-index: 1000; display: flex; flex-direction: column; gap: 10px; transition: all 0.3s ease-in-out;}
 .productItem .actions button{display: flex; align-items: center; justify-content: center; min-width: 40px !important; height: 40px !important; width: 40px !important; border: 1px solid rgba(0,0,0,0.1) !important; border-radius: 50% !important; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%) !important; transition: all 0.0s;}
 
 .productItem .actions button svg{color: #000 !important; opacity: 0.8; pointer-events: none; font-size: 15px ;}
 
-.productItem .actions button:hover{background: #233a95 !important;}
+.productItem .actions button:hover{background: #fa1c66 !important;}
 .productItem .actions button:hover svg{color: #fff !important;}
 
 .productItem .imgWrapper{overflow: hidden;}
@@ -181,7 +197,7 @@ nav .navPart2 ul li:hover .submenu{opacity: 1; visibility: inherit; top: 100%;}
 
 .sticky{position: sticky; top: 10px; z-index: 100;}
 
-.newsLetterSection{width: 100%; height: auto; background: #233a95; position: relative; overflow: hidden; padding: 70px 0px;}
+.newsLetterSection{width: 100%; height: auto; background-image: linear-gradient(to bottom right, #f92b7f, #f92b7f); position: relative; overflow: hidden; padding: 70px 0px;}
 .newsLetterSection .col-md-6{position: static;}
 .newsLetterSection p{font-size: 18px; margin: 10px 0px;}
 .newsLetterSection h3{font-size: 35px; font-weight: bold;}
@@ -192,7 +208,7 @@ nav .navPart2 ul li:hover .submenu{opacity: 1; visibility: inherit; top: 100%;}
 .newsLetterSection form svg {position: absolute;top: 17px; left: 10px; font-size: 25px; opacity: 0.3;}
 .newsLetterSection form input{width: 100%; height: 100%; background: #fff !important; outline: none !important; border: 0px !important; padding-left: 40px; padding-right: 200px;}
 
-.newsLetterSection form button{position: absolute; top: 6px; right: 7px; background: #233a95 !important; font-size: 14px !important; padding: 12px 25px !important; color: #fff !important; text-transform: capitalize !important; font-weight: 600 !important;}
+.newsLetterSection form button{position: absolute; top: 6px; right: 7px; background: #df2670 !important; font-size: 14px !important; padding: 12px 25px !important; color: #fff !important; text-transform: capitalize !important; font-weight: 600 !important;}
 
 
 footer{width: 100%; height: 500px; margin: auto; padding: 25px 0px; background: #fff;}
@@ -210,22 +226,37 @@ footer .linksWrap ul li a:hover{text-decoration: none;}
 footer .copyright ul li{display: flex; align-items: center; justify-content: center; }
 footer .copyright ul li a{ margin-left: 4px; display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2);}
 footer .copyright ul li a svg{ font-size: 20px; color: rgba(0,0,0,0.8);}
-footer .copyright ul li a:hover{background: #2bbef9 !important;}
+footer .copyright ul li a:hover{background: #f92b7f  !important;}
 footer .copyright ul li a:hover svg{color: #fff !important;}
 
 
 .productModal .MuiPaper-elevation{padding: 25px; position: relative; max-width: 900px !important; width: 900px !important;}
 .productModal h4{font-size: 20px !important; color: rgba(0,0,0,0.8) !important;}
 
-.productZoom{width: 100%; height: auto; border: 1px solid rgba(0,0,0,0.1); padding: 0px; overflow: hidden; border-radius: 15px;}
+.productZoom{width: 100%; height: auto;  padding: 0px; overflow: hidden; border-radius: 15px;}
+.productZoom .badge{position: absolute; top: 20px; left: 20px; z-index: 100;}
+
 .zoomSliderBig {width: 100% !important;}
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 
-
-.zoomSlider{padding-top: 30px;}
+.zoomSlider{padding-top: 10px;}
 .zoomSlider .slick-slide {padding-right: 20px !important;}
-.zoomSlider *{outline: none !important;}
+.zoomSlider *{outline: none !important; }
 .zoomSlider .item{border: 2px solid transparent !important; overflow: hidden; border-radius: 15px; cursor: pointer;}
 .zoomSlider .slick-current .item{border: 2px solid #3bb77e !important;}
 .zoomSlider .slick-arrow{top: 55% !important; zoom: 80% !important;}
 .zoomSlider .slick-arrow.slick-next{right: -2% !important;}
-.zoomSlider .slick-arrow.slick-prev{left: -2% !important;}
+.zoomSlider .slick-arrow.slick-prev{left: -5% !important;}
+
+.quantityDrop{width: 150px; gap: 10px;}
+.quantityDrop button{min-width: 40px !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; background: #edeef5 !important; border: 1px solid rgba(0,0,0,0.1) !important; color: #000 !important; }
+.quantityDrop button svg{color: #000 !important;}
+
+.quantityDrop input{width: 30px; border: 0px; background: transparent; outline: none; text-align: center;}
+
+.productModal .actions button{color: #000 !important; border: 1px solid rgba(0,0,0,0.1) !important; font-size: 10px !important;}
+.productModal .actions button svg{font-size: 15px !important;}

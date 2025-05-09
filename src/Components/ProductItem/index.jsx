@@ -2,21 +2,19 @@ import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { IoMdHeartEmpty } from "react-icons/io";
-import ProductModel from '../ProductModel';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { MyContext } from '../../App';
 
 
 const ProductItem = () =>{
 
-    const [isOpenProductModal, setisOpenProductModal] = useState(false);
+   const context = useContext(MyContext);
 
     const viewProductDetails=(id)=>{
-        setisOpenProductModal(true);
+        context.setisOpenProductModal(true);
     }
 
-    const closeProductModal = ()=>{
-        setisOpenProductModal(false);
-    }
+
 
 
     return(
@@ -47,9 +45,7 @@ const ProductItem = () =>{
 
         </div>
 
-        {
-            isOpenProductModal===true && <ProductModel closeProductModal={closeProductModal}/>
-        }
+
         
          
         </>
