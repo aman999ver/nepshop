@@ -226,7 +226,7 @@ footer .linksWrap ul li a:hover{text-decoration: none;}
 footer .copyright ul li{display: flex; align-items: center; justify-content: center; }
 footer .copyright ul li a{ margin-left: 4px; display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2);}
 footer .copyright ul li a svg{ font-size: 20px; color: rgba(0,0,0,0.8);}
-footer .copyright ul li a:hover{background: #f92b7f  !important;}
+footer .copyright ul li a:hover{background: #2bbef9 !important;}
 footer .copyright ul li a:hover svg{color: #fff !important;}
 
 
