@@ -4,44 +4,22 @@ import { MdClose } from "react-icons/md";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdCompareArrows } from "react-icons/md";
 import Rating from '@mui/material/Rating';
-import Slider from 'react-slick';
-import { useContext, useRef } from 'react';
-import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/styles.min.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useContext, useRef, useState } from 'react';
 import QuantityBox from '../QuantityBox';
 import { MyContext } from '../../App';
+import ProductZoom from '../ProductZoom';
+
+
 
 
 const ProductModel = (props)=>{
 
-    var settings2 ={
-        dots: false,
-        infinite: false,
-        speed: 700,
-        slidesToShow:1,
-        slidesToScroll:1,
-        fade: false,
-        arrows: false,
-    };
-    var settings ={
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow:5,
-        slidesToScroll:1,
-        fade: false,
-        arrows: true,
-    };
 
-    const zoomSliderBig = useRef();
-    const zoomSlider = useRef(); 
 
     const context = useContext(MyContext);
-
-    const goto = (index) =>{
-        zoomSlider.current.slickGoTo(index);
-        zoomSliderBig.current.slickGoTo(index);
-    }
 
 
     return(
@@ -62,44 +40,7 @@ const ProductModel = (props)=>{
             <hr />
             
             <div className='row mt-2 productDetailModal'>
-                <div className='col-md-5'>
-                    <div className='productZoom position-relative'>
-                        <div className='badge badge-primary'>28%</div>    
-                        <Slider {...settings2} className='zoomSliderBig' ref={zoomSliderBig}
-                        >
-                            <div className='item'>
-                                        <InnerImageZoom 
-                                            zoomType="hover" zoomScale={1.5}
-                                            src={`https://img.drz.lazcdn.com/static/np/p/ab16021a24fe031653062bfaad695e5f.png_400x400q80.png_.webp`}/>
-                            </div>
-                            <div className='item'>
-                                        <InnerImageZoom 
-                                            zoomType="hover" zoomScale={1.5}
-                                            src={`https://mobile.yoox.com/images/items/12/12452835JA_14_f.jpg?impolicy=crop&width=387&height=490`}/>
-                            </div>
-                            <div className='item'>
-                                        <InnerImageZoom 
-                                            zoomType="hover" zoomScale={0.3}
-                                            src={`https://www.code-zero.com/uploads/media/62/a1/b6/1715866677/polo-atlantic-white.jpg?ts=1715866677`}/>
-                            </div>
-                        </Slider>
-                    </div>
-                       
-                        <Slider {...settings} className='zoomSlider' ref={zoomSlider}
-                        >
-                            <div className='item'>
-                                <img src={`https://img.drz.lazcdn.com/static/np/p/ab16021a24fe031653062bfaad695e5f.png_400x400q80.png_.webp`} className='w-100' onClick={()=> goto(0)} />               
-                            </div>
-                            <div className='item'>
-                                <img src={`https://mobile.yoox.com/images/items/12/12452835JA_14_f.jpg?impolicy=crop&width=387&height=490`} className='w-100' onClick={()=> goto(1)} />               
-                            </div>
-                            <div className='item'>
-                                <img src={`https://www.code-zero.com/uploads/media/62/a1/b6/1715866677/polo-atlantic-white.jpg?ts=1715866677`} className='w-100' onClick={()=> goto(2)} />               
-                            </div>
-
-                        </Slider>
-                    
-                </div>
+                <ProductZoom/>
                 <div className='col-md-7'>
                     <div className='d-flex info align-items-center mb-3'>
                         <span className='oldPrice lg mr-2'>$20</span>

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import { Link } from "react-router-dom";
 
 const HomeCat = ()=>{
     return(
@@ -19,7 +20,9 @@ const HomeCat = ()=>{
                     >
                         <SwiperSlide>
                             <div className="item text-center">
+                                <Link to="/cat/:id">
                                 <img src="https://api.spicezgold.com/download/file_1734525204708_fash.png" alt="" />
+                                </Link>
                                 <h6>Fashion</h6>
                             </div>
                         </SwiperSlide>

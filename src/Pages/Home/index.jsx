@@ -42,13 +42,12 @@ const Home =() => {
                                 <Button className="viewAllBtn ml-auto">View all <IoIosArrowRoundForward/></Button>
                             </div>
 
-                            <div className="product_row mt-4">
+                            <div className="product_row w-100 mt-2">
                                 <Swiper
                                     slidesPerView={4}
                                     spaceBetween={0}
-                                    pagination={{
-                                    clickable: true,
-                                    }}
+                                    navigation={true}
+                                    slidesPerGroup={3}
                                     modules={[Navigation]}
                                     className="mySwiper"
                                 >
@@ -83,7 +82,7 @@ const Home =() => {
                                 <Button className="viewAllBtn ml-auto">View all <IoIosArrowRoundForward/></Button>
                             </div>
 
-                            <div className="product_row productRow2 mt-4 d-flex ">
+                            <div className="product_row w-100 productRow2 mt-4 d-flex ">
                               <ProductItem/>
                               <ProductItem/>
                               <ProductItem/>
