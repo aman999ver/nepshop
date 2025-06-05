@@ -21,8 +21,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Logout from '@mui/icons-material/Logout';
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Divider } from "@mui/material";
+import { MyContext } from "../../App";
 
 const Header = () => {  
 
@@ -30,6 +31,12 @@ const Header = () => {
     const [isOpenNotificationsDrop, setisOpenNotificationsDrop] = useState(false);
     const openMyAcc = Boolean(anchorEl);
     const openNotifications = Boolean(isOpenNotificationsDrop);
+
+    
+
+    const context = useContext(MyContext)
+
+
     const handleOpenMyAccDrop = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -54,13 +61,19 @@ const Header = () => {
                         <span className="ml-2">NEPSHOP</span></Link>
                     </div>
 
-                    <div className="col-sm-3 d-flex align-items-center part2 pl-4">
-                        <Button className="rounded-circle mr-3"><MdMenuOpen/></Button>
+                    <div className="col-sm-3 d-flex align-items-center part2 ">
+                        <Button className="rounded-circle mr-3" onClick={()=>context.setIsToggleSidebar(!context.isToggleSidebar)}>
+                            {
+                                context.isToggleSidebar===false ? <MdMenuOpen/> : <MdOutlineMenu/>
+                            }
+                        </Button>
                         <SearchBox/>
                     </div>
 
                     <div className="col-sm-7 d-flex align-items-center justify-content-end part3">
-                        <Button className="rounded-circle mr-3"><MdOutlineLightMode/></Button>   
+                        <Button className="rounded-circle mr-3"onClick={()=>context.setThemeMode(!context.themeMode)}>
+                            <MdOutlineLightMode/>
+                        </Button>   
                         <Button className="rounded-circle mr-3"><IoCartOutline/></Button>
 
                         
@@ -300,8 +313,12 @@ const Header = () => {
                                 </Menu>
                         </div>
 
-                        <div className="myAccWrapper">
-                            <Button className="myAcc d-flex align-items-center" onClick={handleOpenMyAccDrop}>
+                        {
+                            context.isLogin!==true ? <Link to={'/login'}><Button className="btn-blue btn-lg btn-round">Sign In</Button></Link> 
+                            :
+
+                            <div className="myAccWrapper">
+                                <Button className="myAcc d-flex align-items-center" onClick={handleOpenMyAccDrop}>
                                 <div className="userImg">
                                     <span className="rounded-circle">
                                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" />
@@ -313,7 +330,7 @@ const Header = () => {
                                     <p className="mb-0">@mrwhite</p>
                                 </div>
 
-                            </Button>
+                                </Button>
 
                             <Menu
                                 anchorEl={anchorEl}
@@ -346,7 +363,10 @@ const Header = () => {
                             </Menu>
 
 
-                        </div>
+                            </div>
+                        }
+
+                       
 
                     </div>
 
