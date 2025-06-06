@@ -22,6 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Pagination from '@mui/material/Pagination';
 import { MyContext } from "../../App";
+import { Link } from "react-router-dom";
 
 export const data = [
   ["Day", "", "", "", ""],
@@ -247,7 +248,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>
@@ -282,7 +283,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>
@@ -317,7 +318,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>
@@ -352,7 +353,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>
@@ -387,7 +388,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>
@@ -422,7 +423,7 @@ const Dashboard = () =>{
                                     <td>$38k</td>
                                     <td>
                                         <div className="actions d-flex align-items-center">
-                                            <Button className="secondary" color="secondary"><FaEye/></Button>
+                                            <Link to="/product/details"><Button className="secondary" color="secondary"><FaEye/></Button></Link>
                                             <Button className="success" color="success"><FaPencilAlt/></Button>
                                             <Button className="error" color="error"><FaTrashAlt/></Button>
                                         </div>

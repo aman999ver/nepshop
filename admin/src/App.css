@@ -28,6 +28,7 @@ body.dark {background: #1d1c1c !important;}
 header{width: 100%; height: 70px; background: rgba(255, 255, 255, 0.9); position: fixed; top: 0px; left: 0px; z-index: 1000; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);}
 
 body.dark header{background: #2b2a2a !important;}
+body.dark a{background: #2b2a2a !important;}
 
 header .logo{text-decoration: none;}
 header .logo img{width: 45px;}
@@ -216,18 +217,26 @@ body.dark .cardFilters .col-md-3 h4{color: rgba(255, 255, 255, 0.8) !important;}
 
 h1, h2, h3, h4, h5, h6, p {color: #403e57;}
 
+h4{line-height: 32px;}
+
+body.dark { color: rgba(255, 255, 255, 0.8) !important;}
+
 body.dark .css-si86to-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select, body.dark h1,
 body.dark h2,
 body.dark h3,
 body.dark h4,
 body.dark h5,
 body.dark h6,
+body.dark span,
 body.dark p , body.dark .css-lohd6h-MuiSvgIcon-root-MuiSelect-icon, body.dark .css-d551zc-MuiSvgIcon-root-MuiSelect-icon{color: rgba(255, 255, 255, 0.8) !important;}
+p{font-weight: 400 !important;}
 
 body.dark .css-1ll44ll-MuiOutlinedInput-notchedOutline{border-color: rgba(255, 255, 255, 0.3) !important;}
 
 .table-responsive::-webkit-scrollbar-thumb{background: #ccc !important;}
 body.dark .table-responsive::-webkit-scrollbar-thumb{background: rgba(255, 255, 255, 0.3) !important;}
+
+.slick-slide{outline: none !important;}
 
 .table .thead-dark th{background-color: #1866ee !important; border-color: rgba(255, 255, 255, 0.1) !important; font-size: 13px !important;}
 
@@ -304,3 +313,25 @@ table.v-align td .productBox{width: 270px;}
 .signUpSection .part1{padding-left: 100px; padding-right: 100px;}
 .signUpSection .part1 h1{font-size: 50px; font-weight: 800;}
 .signUpSection .part1 p{font-size: 18px; font-weight: 500;}
+
+
+.sliderSml .slick-slide{padding-right:10px;}
+.sliderSml .slick-slide .item{border-radius: 7px !important; overflow: hidden !important;}
+
+.sliderSml *, .sliderBig *{transition: all 0.2s !important;}
+
+.sliderBig .item{overflow: hidden; border-radius: 7px !important;}
+
+.productDetailsSection .productInfo .icon{width: 28%; flex: 0 0 28%;}
+.productDetailsSection .productInfo .icon svg{font-size: 22px;}
+.productDetailsSection .productInfo .name{width: 72%; flex: 0 0 72%; font-weight: 600; font-size: 15px;}
+
+.productDetailsSection .productInfo .row .col-sm-9 span{opacity: 0.8; font-size: 15px;}
+.productDetailsSection .productInfo .row .col-sm-9{display: flex; align-items: center;}
+
+.productDetailsSection .productInfo .row{margin-bottom: 10px !important;}
+.productDetailsSection .productInfo .row .col-sm-9 span{padding-left: 20px;}
+
+.tags{margin-bottom: 0px !important ;}
+.tags li span{display: flex; align-items: center; justify-content: center; background: #3c3c3c !important; border-radius: 5px !important; color: rgba(255, 255, 255, 0.9) !important; font-size: 13px !important; padding: 5px 10px !important;}
+
