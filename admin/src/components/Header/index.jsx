@@ -24,6 +24,7 @@ import Logout from '@mui/icons-material/Logout';
 import { useContext, useState } from "react";
 import { Divider } from "@mui/material";
 import { MyContext } from "../../App";
+import UserAvatar from "../userAvatar";
 
 const Header = () => {  
 
@@ -289,11 +290,7 @@ const Header = () => {
                                     <MenuItem onClick={handleCloseNotificationsDrop}>
                                         <div className="d-flex ">    
                                             <div>
-                                                <div className="userImg">
-                                                    <span className="rounded-circle">
-                                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" />
-                                                    </span>
-                                                </div>
+                                                <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"}/>
                                             </div>
 
                                             <div className="dropdownInfo">
@@ -319,11 +316,7 @@ const Header = () => {
 
                             <div className="myAccWrapper">
                                 <Button className="myAcc d-flex align-items-center" onClick={handleOpenMyAccDrop}>
-                                <div className="userImg">
-                                    <span className="rounded-circle">
-                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" />
-                                    </span>
-                                </div>
+                                <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"}/>
 
                                 <div className="userInfo">
                                     <h4>Aman Verma</h4>

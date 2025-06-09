@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Breadcrumbs, Chip, emphasize, styled } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import Slider from "react-slick";
@@ -11,6 +11,11 @@ import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import { MdReviews } from "react-icons/md";
 import { MdOutlinePublishedWithChanges } from "react-icons/md";
+import UserAvatar from "../../components/userAvatar";
+import Rating from '@mui/material/Rating';
+import Button from '@mui/material/Button';
+import { FaReply } from "react-icons/fa";
+
 
 
 const StyledBreadcrumb = styled(Chip)(({theme}) =>{
@@ -35,6 +40,9 @@ const StyledBreadcrumb = styled(Chip)(({theme}) =>{
 
 const ProductDetails = () =>{
 
+    const productSliderBig = useRef();
+    const productSliderSml = useRef();
+
     var productSliderOptions = {
         dots: false,
         infinite: false,
@@ -52,6 +60,12 @@ const ProductDetails = () =>{
         arrows: false
     };
 
+
+    const goToSlide=(index)=>{
+        productSliderBig.current.slickGoTo(index);
+        productSliderSml.current.slickGoTo(index);
+    }
+
     return (
         <>
         <div className="right-content w-100">
@@ -60,14 +74,14 @@ const ProductDetails = () =>{
                 <Breadcrumbs aria-label="breadcrumb" className="ml-auto breadcrumbs_">
                     <StyledBreadcrumb
                         component="a"
-                        href="#"
+                        href="/"
                         label="Dashboard"
                         icon={<HomeIcon fontSize="small"/>}
                     />
                     <StyledBreadcrumb
                         label="Products"
                         component="a"
-                        href="#"
+                        href="/products"
                         
                     />
                     <StyledBreadcrumb
@@ -81,18 +95,7 @@ const ProductDetails = () =>{
                 <div className="col-md-5">
                      <div className="sliderWrapper pt-3 pb-3 pl-4 pr-4">
                         <h6 className="mb-4">Product Gallery</h6>
-                        <Slider {...productSliderOptions} className="sliderBig mb-2">
-                            <div className="item">
-                                <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
-                            </div>
-                            <div className="item">
-                                <img src="https://t3.ftcdn.net/jpg/05/80/61/14/360_F_580611440_4oCo3gd5XcCkpaRYyiO7QaS67rKEvLgI.jpg" className="w-100" />
-                            </div>
-                            <div className="item">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Gtzod_uB9zYQxl13XVSw2j102cMmFStXAA&s" className="w-100" />
-                            </div>
-                        </Slider>
-                        <Slider {...productSliderSmlOptions} className="sliderSml">
+                        <Slider {...productSliderOptions} ref={productSliderBig} className="sliderBig mb-2">
                             <div className="item">
                                 <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
                             </div>
@@ -112,6 +115,26 @@ const ProductDetails = () =>{
                                 <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
                             </div>
                         </Slider>
+                        <Slider {...productSliderSmlOptions} ref={productSliderSml} className="sliderSml">
+                            <div className="item" onClick={()=>goToSlide(0)}>
+                                <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
+                            </div>
+                            <div className="item" onClick={()=>goToSlide(1)}>
+                                <img src="https://t3.ftcdn.net/jpg/05/80/61/14/360_F_580611440_4oCo3gd5XcCkpaRYyiO7QaS67rKEvLgI.jpg" className="w-100" />
+                            </div>
+                            <div className="item" onClick={()=>goToSlide(2)}>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Gtzod_uB9zYQxl13XVSw2j102cMmFStXAA&s" className="w-100" />
+                            </div>
+                            <div className="item" onClick={()=>goToSlide(3)}>
+                                <img src="https://3.imimg.com/data3/XD/NF/MY-21537692/office-coat.jpg" className="w-100" />
+                            </div>
+                            <div className="item" onClick={()=>goToSlide(4)}>
+                                <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
+                            </div>
+                            <div className="item" onClick={()=>goToSlide(5)}>
+                                <img src="https://5.imimg.com/data5/LE/WK/LO/SELLER-33389186/mens-formal-blazer-500x500.jpg" className="w-100" />
+                            </div>
+                        </Slider>
                      </div>
                 </div>
                 <div className="col-md-7">
@@ -119,7 +142,7 @@ const ProductDetails = () =>{
                         <h6 className="mb-4">Product Details</h6>
                         <h4>Formal Suits for man wedding slim fit 3 piece dress business party jacket</h4>
 
-                        <div className="productInfo mt-3">
+                        <div className="productInfo mt-4">
                             <div className="row mb-2">
                                 <div className="col-sm-3 d-flex align-items-center">
                                     <span className="icon"><FaShop/></span>
@@ -265,8 +288,191 @@ const ProductDetails = () =>{
             </div>
 
             <div className="p-4">
-                <h4 className="mt-4">Product Description</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab eaque delectus possimus recusandae rerum? Nisi accusamus cupiditate voluptate eos suscipit, repellat esse fugiat, vitae tempora quidem sequi quas, iusto maxime quod vero. Quam cumque neque optio nobis rerum perspiciatis nisi sunt reprehenderit culpa. Dolore optio suscipit, sint delectus iure non odit consequatur voluptate cupiditate numquam itaque provident rem labore esse quasi a. In quasi quae at nam, vitae dolore reprehenderit laborum aut. Odio autem minima nulla delectus praesentium eum ullam.</p>
+                <h6 className="mt-4 mb-3">Product Description</h6>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab eaque delectus possimus recusandae rerum? Nisi accusamus cupiditate voluptate eos suscipit, repellat esse fugiat, vitae tempora quidem sequi quas, iusto maxime quod vero. Quam cumque neque optio nobis rerum perspiciatis nisi sunt reprehenderit culpa. Dolore optio suscipit, sint delectus iure non odit consequatur voluptate cupiditate numquam itaque provident rem labore esse quasi a. In quasi quae at nam, vitae dolore reprehenderit laborum aut. Odio autem minima nulla delectus praesentium eum ullam.</p>
+                <br />
+                <h6 className="mt-4 mb-4">Rating Analytics</h6>
+                <div className="ratingSection">
+                    <div className="ratingrow d-flex align-items-center">
+                        <span className="col1">
+                            5 Star
+                        </span>
+                        <div className="col2">
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:'90%'}}></div>
+                            </div>
+                        </div>
+                        <span className="col3">
+                            (22)
+                        </span>
+                    </div>
+                    <div className="ratingrow d-flex align-items-center">
+                        <span className="col1">
+                            4 Star
+                        </span>
+                        <div className="col2">
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:'70%'}}></div>
+                            </div>
+                        </div>
+                        <span className="col3">
+                            (22)
+                        </span>
+                    </div>
+                    <div className="ratingrow d-flex align-items-center">
+                        <span className="col1">
+                            3 Star
+                        </span>
+                        <div className="col2">
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:'50%'}}></div>
+                            </div>
+                        </div>
+                        <span className="col3">
+                            (2)
+                        </span>
+                    </div>
+                    <div className="ratingrow d-flex align-items-center">
+                        <span className="col1">
+                            2 Star
+                        </span>
+                        <div className="col2">
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:'10%'}}></div>
+                            </div>
+                        </div>
+                        <span className="col3">
+                            (22)
+                        </span>
+                    </div>
+                    <div className="ratingrow d-flex align-items-center">
+                        <span className="col1">
+                            1 Star
+                        </span>
+                        <div className="col2">
+                            <div className="progress">
+                                <div className="progress-bar" style={{width:'5%'}}></div>
+                            </div>
+                        </div>
+                        <span className="col3">
+                            (22)
+                        </span>
+                    </div>
+                </div>
+
+                <br />
+
+                <h6 className="mt-4 mb-4">Customer Reviews</h6>
+                <div className="reviewsSection">
+                    <div className="reviewsRow">
+                        <div className="row">
+                            <div className="col-sm-7 d-flex">
+                                <div className="d-flex  flex-column">
+                                    <div className="userInfo d-flex align-items-center mb-3">
+                                        <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"} lg={true}/>
+                                        <div className="info pl-3">
+                                            <h6>Aman Verma</h6>
+                                            <span>25 minutes ago!</span>
+                                        </div>
+                                    </div>
+                                    <Rating  name="read-only" value={4.5} precision={0.5} readOnly />
+                                </div>
+                            </div>
+                            <div className="col-sm-5 d-flex align-items-center">
+                                <div className="ml-auto">
+                                    <Button className="btn-blue btn-lg btn-big ml-auto"><FaReply/> &nbsp; Reply</Button>
+                                </div>
+
+                            </div>
+
+                            <p className="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui officiis vero dolorum accusantium, beatae sunt! Quam cum aut at impedit architecto reprehenderit mollitia accusantium quisquam error eum officia officiis, numquam iure culpa.</p>
+                                
+                        </div>
+                    </div>
+                    <div className="reviewsRow reply">
+                        <div className="row">
+                            <div className="col-sm-7 d-flex">
+                                <div className="d-flex  flex-column">
+                                    <div className="userInfo d-flex align-items-center mb-3">
+                                        <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"} lg={true}/>
+                                        <div className="info pl-3">
+                                            <h6>Aman Verma</h6>
+                                            <span>25 minutes ago!</span>
+                                        </div>
+                                    </div>
+                                    <Rating  name="read-only" value={4.5} precision={0.5} readOnly />
+                                </div>
+                            </div>
+                            <div className="col-sm-5 d-flex align-items-center">
+                                <div className="ml-auto">
+                                    <Button className="btn-blue btn-lg btn-big ml-auto"><FaReply/> &nbsp; Reply</Button>
+                                </div>
+
+                            </div>
+
+                            <p className="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui officiis vero dolorum accusantium, beatae sunt! Quam cum aut at impedit architecto reprehenderit mollitia accusantium quisquam error eum officia officiis, numquam iure culpa.</p>
+                                
+                        </div>
+                    </div>
+                    <div className="reviewsRow reply">
+                        <div className="row">
+                            <div className="col-sm-7 d-flex">
+                                <div className="d-flex  flex-column">
+                                    <div className="userInfo d-flex align-items-center mb-3">
+                                        <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"} lg={true}/>
+                                        <div className="info pl-3">
+                                            <h6>Aman Verma</h6>
+                                            <span>25 minutes ago!</span>
+                                        </div>
+                                    </div>
+                                    <Rating  name="read-only" value={4.5} precision={0.5} readOnly />
+                                </div>
+                            </div>
+                            <div className="col-sm-5 d-flex align-items-center">
+                                <div className="ml-auto">
+                                    <Button className="btn-blue btn-lg btn-big ml-auto"><FaReply/> &nbsp; Reply</Button>
+                                </div>
+
+                            </div>
+
+                            <p className="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui officiis vero dolorum accusantium, beatae sunt! Quam cum aut at impedit architecto reprehenderit mollitia accusantium quisquam error eum officia officiis, numquam iure culpa.</p>
+                                
+                        </div>
+                    </div>
+                    <div className="reviewsRow">
+                        <div className="row">
+                            <div className="col-sm-7 d-flex">
+                                <div className="d-flex  flex-column">
+                                    <div className="userInfo d-flex align-items-center mb-3">
+                                        <UserAvatar img={"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"} lg={true}/>
+                                        <div className="info pl-3">
+                                            <h6>Aman Verma</h6>
+                                            <span>25 minutes ago!</span>
+                                        </div>
+                                    </div>
+                                    <Rating  name="read-only" value={4.5} precision={0.5} readOnly />
+                                </div>
+                            </div>
+                            <div className="col-sm-5 d-flex align-items-center">
+                                <div className="ml-auto">
+                                    <Button className="btn-blue btn-lg btn-big ml-auto"><FaReply/> &nbsp; Reply</Button>
+                                </div>
+
+                            </div>
+
+                            <p className="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui officiis vero dolorum accusantium, beatae sunt! Quam cum aut at impedit architecto reprehenderit mollitia accusantium quisquam error eum officia officiis, numquam iure culpa.</p>
+                                
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <h6 className="mt-4 mb-4">Reviews Reply Form</h6>
+                <form className="reviewForm ">
+                    <textarea placeholder="write here"></textarea>
+                </form>
+                <Button className="btn-blue btn-big btn-lg w-100 mt-4">Drop your replies</Button>
+
 
             </div>
         </div>

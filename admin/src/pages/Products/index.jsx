@@ -64,6 +64,7 @@ const Products = () => {
                            />
                            <StyledBreadcrumb
                                label="Products"
+                               component="a"
                                deleteIcon={<ExpandMoreIcon />}
                            />
                        </Breadcrumbs>
